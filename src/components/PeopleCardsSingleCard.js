@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardActionArea, CardContent, Button, Typography, Grid } from '@material-ui/core';
+import { Card, CardActionArea, CardContent, Typography, Grid } from '@material-ui/core';
 
 const cardStyles = {
     minWidth: 275,

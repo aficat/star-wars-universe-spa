@@ -4,10 +4,11 @@ export default class Footer extends Component {
     render() {
         return (
             <div>
-                Copyright Star Wars Universe
+                <p>
+                    Copyright Star Wars Universe
+                </p>
                 &copy;
-                {1900 + new Date().getYear()}
-                , Afiqah Rashid
+                {1900 + new Date().getYear()} Afiqah Rashid
             </div>
         )
     }

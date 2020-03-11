@@ -13,7 +13,7 @@ const containerStyles = {
 class App extends Component {
   render() {
     return (
-      <Container style={containerStyles} alignItems="center">
+      <Container style={containerStyles} align="center">
         <Grid container spacing={3}>
           <Grid item xs={12}>
             <Header />

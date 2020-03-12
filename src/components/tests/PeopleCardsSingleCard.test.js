@@ -2,24 +2,28 @@ import { shallow } from 'enzyme';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import toJson from 'enzyme-to-json'
-import PeopleCardsPagination from '../PeopleCardsPagination';
+import PeopleCardsSingleCard from '../PeopleCardsSingleCard';
 import store from '../../store';
 
-describe('PeopleCardsPagination component', () => {
+describe('PeopleCardsSingleCard component', () => {
 
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<PeopleCardsPagination store={store} />, div);
+        ReactDOM.render(<PeopleCardsSingleCard store={store} />, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 
     it('renders without crashing given the required props', () => {
         const props = {
             dispatch: jest.fn(),
-            count: 0
+            homeworld: "",
+            species: [],
+            films: [],
+            starships: [],
+            vehicles: [],
         }
-        const wrapper = shallow(<PeopleCardsPagination {...props} store={store} />)
+        const wrapper = shallow(<PeopleCardsSingleCard {...props} store={store} />)
         expect(toJson(wrapper)).toMatchSnapshot()
     })
-    
+
 });

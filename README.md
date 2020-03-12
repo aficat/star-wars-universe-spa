@@ -2,6 +2,10 @@
 
 This is a React.js single page application where users can view the details about all the people in the Star Wars Universe provided by the SWAPI API.
 
+[View Demo](https://aficat.github.io/star-wars-universe-spa/)
+
+Note: Download Google Extension "Moesif CORS" and switch on CORS before viewing application.
+
 ## Software Architecture and Design
 This React.js application is equipped with Redux and bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The design of this application uses the [Material UI](https://material-ui.com/) and [Semantic UI React](https://react.semantic-ui.com/) library.
 
@@ -53,6 +57,8 @@ This React.js application is equipped with Redux and bootstrapped with [Create R
                     |__ PeopleCardsPagination.test.js
                     |__ Footer.test.js
                     |__ Header.test.js
+                    |__ PeopleCards.test.js
+                    |__ PeopleCardsSingleCard.test.js
 
 ## Setup Guide
 
@@ -79,6 +85,33 @@ This React.js application is equipped with Redux and bootstrapped with [Create R
 ### Unit Testing
 1. Install: `enzyme enzyme-adapter-react-16 --dev`
 2. Run `npm run test` to launch test runner.
+
+### Deployment
+1. To publish it at https://myusername.github.io/my-app, run:
+
+```
+npm install --save gh-pages
+```
+
+2. Add the following scripts in your package.json:
+
+```
+  "scripts": {
++   "predeploy": "npm run build",
++   "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+```
+The predeploy script will run automatically before deploy is run.
+
+3. Add `"homepage": "https://<insert username>.github.io/<insert app-name>"` into package.json.
+
+4. Deploy the site by running npm run deploy
+Then run:
+
+```
+npm run deploy
+```
 
 ## Screenshot of Application
 

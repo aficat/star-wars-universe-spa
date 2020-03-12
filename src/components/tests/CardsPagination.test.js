@@ -7,7 +7,10 @@ describe('CardsPagination component', () => {
     test('renders Pagination component', () => {
         const wrapper = shallow(<CardsPagination />);
         const resultComponent = wrapper.containsMatchingElement(
-            <Pagination defaultActivePage={5} totalPages={10} />
+            <Pagination
+                defaultActivePage={1}
+                totalPages={9}
+            />
         );
         expect(resultComponent).toBeTruthy();
     });

@@ -11,6 +11,33 @@ const containerStyles = {
 };
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      people: [],
+      count: 0,
+      next: null,
+      previous: null
+    }
+  }
+
+  callStarWarsPeopleAPI = () => {
+    fetch("https://swapi.co/api/people").then(res => res.json())
+      // .then(data => { console.log(data)  })
+      .then(data => this.setState({
+        people: data.results,
+        count: data.count,
+        next: data.next,
+        previous: data.previous
+      }))
+      .catch(error => console.error(error));
+  }
+
+  componentDidMount() {
+    this.callStarWarsPeopleAPI();
+  }
+
   render() {
     return (
       <Container style={containerStyles} align="center">
@@ -20,10 +47,10 @@ class App extends Component {
             <br />
             <hr />
           </Grid>
-          <PeopleCards />
+          <PeopleCards people={this.state.people} />
           <Grid item xs={12}>
             <br />
-            <CardsPagination />
+            <CardsPagination count={this.state.count} />
           </Grid>
           <Grid item xs={12}>
             <br />

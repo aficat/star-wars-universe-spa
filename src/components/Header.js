@@ -15,7 +15,7 @@ export default class Header extends Component {
                     variant="subtitle1"
                     color="textPrimary"
                 >
-                    Click on name cards for view each person's details.
+                    This is a database of all the people in the Star Wars Universe.
                 </Typography>
             </>
         )

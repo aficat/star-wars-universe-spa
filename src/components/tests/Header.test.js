@@ -24,7 +24,7 @@ describe('Header component', () => {
                 variant="subtitle1"
                 color="textPrimary"
             >
-                Click on name cards for view each person's details.
+                This is a database of all the people in the Star Wars Universe.
             </Typography>
         );
         expect(resultComponent).toBeTruthy();

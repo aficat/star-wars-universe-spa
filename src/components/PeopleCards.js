@@ -3,13 +3,21 @@ import PeopleCardsSingleCard from './PeopleCardsSingleCard';
 
 export default class PeopleCards extends Component {
     render() {
-        let cardItems = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        let people = this.props.people;
         return (
             <>
-                {cardItems.map(item =>
+                {people.map(person =>
                     <PeopleCardsSingleCard
-                        item={item}
-                        key={item}
+                        name={person.name}
+                        gender={person.gender}
+                        height={person.height}
+                        mass={person.mass}
+                        url={person.url}
+                        eyeColor={person.eye_color}
+                        hairColor={person.hair_color}
+                        skinColor={person.skin_color}
+                        birthYear={person.birth_year}
+                        key={person.url}
                     />
                 )}
             </>

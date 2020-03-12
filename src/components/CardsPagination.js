@@ -11,7 +11,6 @@ export default class CardsPagination extends Component {
     }
 
     handlePaginationChange = (e, { activePage }) => {
-        // console.log(activePage)
         this.setState({ activePage: activePage });
         //reset people cards display according to new page
     }

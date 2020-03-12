@@ -2,7 +2,6 @@ import { FETCH_PEOPLE } from './types';
 
 export const fetchPeople = () => (dispatch) => {
     fetch("https://swapi.co/api/people").then(res => res.json())
-        // .then(data => { console.log(data)  })
         .then(data => {
             return dispatch({
                 type: FETCH_PEOPLE,

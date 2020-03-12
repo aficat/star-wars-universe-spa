@@ -24,6 +24,13 @@ class PeopleCards extends Component {
                         hairColor={person.hair_color}
                         skinColor={person.skin_color}
                         birthYear={person.birth_year}
+                        homeworldURL={person.homeworld}
+                        filmsURLs={person.films}
+                        speciesURLs={person.species}
+                        vehiclesURLs={person.vehicles}
+                        starshipsURLs={person.starships}
+                        createdDate={person.created}
+                        editedDate={person.edited}
                         key={person.url}
                     />
                 )}

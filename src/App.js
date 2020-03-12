@@ -9,7 +9,8 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 const containerStyles = {
-  marginTop: "50px",
+  margin: "auto",
+  marginTop: "50px"
 };
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
     return (
       <Provider store={store}>
         <Container style={containerStyles} align="center">
-          <Grid container spacing={3}>
+          <Grid container spacing={3} justify="center">
             <Grid item xs={12}>
               <Header />
               <br />

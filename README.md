@@ -16,6 +16,11 @@ This React.js application is equipped with Redux and bootstrapped with [Create R
         |   |        
         |   |__ index.html
         |
+        |__ screenshots
+        |   |        
+        |   |__ People_List_View.jpg
+        |   |__ Person_Details.jpg
+        |
         |__ src 
             |   
             |__ App.js (Application Home Page, Redux Store Provider Injected)
@@ -76,4 +81,7 @@ This React.js application is equipped with Redux and bootstrapped with [Create R
 2. Run `npm run test` to launch test runner.
 
 ## Screenshot of Application
-`Insert screenshots`
+
+![People in the Star Wars Universe](https://i.pinimg.com/originals/30/ae/a3/30aea3c30220b838eb4af36fa1f42e94.png)
+
+![Person Details](https://i.pinimg.com/originals/b0/eb/a0/b0eba0ce949dac12593f84ed1b80efcd.png)

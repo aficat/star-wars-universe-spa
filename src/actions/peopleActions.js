@@ -14,7 +14,7 @@ export const fetchPeople = (activePage) => (dispatch) => {
                     people: data.results,
                     count: data.count,
                     status: data.count === 0 ? "" : "done",
-                    message: data.count === 0 ? "There is no data." : "Successfully lretrieved people data."
+                    message: data.count === 0 ? "There is no data." : "Successfully retrieved people data."
                 }
             });
         })

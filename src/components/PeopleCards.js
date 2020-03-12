@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class PeopleCards extends Component {
 
     componentDidMount() {
-        this.props.fetchPeople();
+        this.props.fetchPeople(1); // when application launches, first page is shown
     }
 
     render() {

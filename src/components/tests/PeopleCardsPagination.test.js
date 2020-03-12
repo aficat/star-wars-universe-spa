@@ -1,11 +1,11 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import CardsPagination from '../CardsPagination';
+import PeopleCardsPagination from '../PeopleCardsPagination';
 import { Pagination } from 'semantic-ui-react';
 
-describe('CardsPagination component', () => {
+describe('PeopleCardsPagination component', () => {
     test('renders Pagination component', () => {
-        const wrapper = shallow(<CardsPagination />);
+        const wrapper = shallow(<PeopleCardsPagination />);
         const resultComponent = wrapper.containsMatchingElement(
             <Pagination
                 defaultActivePage={1}

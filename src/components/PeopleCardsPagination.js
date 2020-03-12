@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Pagination } from 'semantic-ui-react';
+import { fetchPeople } from '../actions/peopleActions';
+import { connect } from 'react-redux';
 
-export default class CardsPagination extends Component {
+class PeopleCardsPagination extends Component {
 
     constructor(props) {
         super(props);
@@ -10,9 +12,15 @@ export default class CardsPagination extends Component {
         }
     }
 
+    componentDidMount() {
+        this.props.fetchPeople(this.state.activePage);
+    }
+
     handlePaginationChange = (e, { activePage }) => {
         this.setState({ activePage: activePage });
+
         //reset people cards display according to new page
+        this.props.fetchPeople(activePage);
     }
 
     render() {
@@ -27,3 +35,8 @@ export default class CardsPagination extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    count: state.people.count
+});
+export default connect(mapStateToProps, { fetchPeople })(PeopleCardsPagination);

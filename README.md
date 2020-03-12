@@ -9,7 +9,7 @@ This React.js application is equipped with Redux and bootstrapped with [Create R
 
     star-wars-universe-spa
     |        
-    |__ README.md
+    |__ README.md (Documentation)
     |__ .gitignore
     |__ package.json
     |__ public
@@ -18,21 +18,34 @@ This React.js application is equipped with Redux and bootstrapped with [Create R
     |
     |__ src 
         |   
-        |__ App.js
+        |__ App.js (Application Home Page, Redux Store Provider Injected)
         |__ App.test.js
-        |__ index.css
+        |__ index.css 
         |__ index.js
         |__ serviceWorker.js
-        |__ setupTests.js
+        |__ setupTests.js (Enzyme Testing Setup)
+        |__ store.js (Redux Store Set Up & Configuration)
+        |__ actions
+        |   |
+        |   |__ peopleActions.js (/people API call)
+        |   |__ personActions.js (/people/:personId & other person details API calls)
+        |   |__ types.js (List of all action types)
+        |   
+        |__ reducers
+        |   |
+        |   |__ peopleReducersjs (State management for people)
+        |   |__ personReducer.js (State management for each person's details)
+        |   |__ index.js (Combined reducer management)
+        |
         |__ components 
             |
-            |__ CardsPagination.js
             |__ Footer.js
             |__ Header.js
-            |__ PeopleCards.js
-            |__ PeopleCardsSingleCard.js
+            |__ PeopleCards.js (List of People Cards)
+            |__ PeopleCardsSingleCard.js (Card of each Person with its Details)
+            |__ PeopleCardsPagination.js (Pagination for People Cards)
             |__ tests
-                |__ CardsPagination.test.js
+                |__ PeopleCardsPagination.test.js
                 |__ Footer.test.js
                 |__ Header.test.js
 

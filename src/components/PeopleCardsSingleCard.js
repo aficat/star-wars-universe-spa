@@ -96,12 +96,7 @@ class PeopleCardsSingleCard extends Component {
     render() {
         const {
             name,
-            height,
-            mass,
             gender,
-            eyeColor,
-            skinColor,
-            hairColor,
             birthYear
         } = this.props;
         return (
@@ -115,22 +110,11 @@ class PeopleCardsSingleCard extends Component {
                             {name}
                         </Typography>
                         <Typography
-                            variant="subtitle2"
+                            variant="body2"
                             component="p"
                         >
                             Gender: {gender}<br />
                         Birth Year: {birthYear}
-                        </Typography>
-                        <Typography
-                            variant="body2"
-                            component="p"
-                        >
-                            Height: {height}<br />
-                            Mass: {mass}<br />
-                            Eye Color: {eyeColor} <br />
-                            Skin Color: {skinColor} <br />
-                            Hair Color: {hairColor}
-                            <br />
                         </Typography>
                     </CardContent>
                     <CardActions>
@@ -150,4 +134,11 @@ const mapStateToProps = state => ({
     starships: state.person.starships,
     vehicles: state.person.vehicles
 });
-export default connect(mapStateToProps, { fetchHomeworld, fetchSpecies, fetchFilms, fetchStarships, fetchVehicles })(PeopleCardsSingleCard);
+export default connect(mapStateToProps,
+    {
+        fetchHomeworld,
+        fetchSpecies,
+        fetchFilms,
+        fetchStarships,
+        fetchVehicles
+    })(PeopleCardsSingleCard);

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container } from '@material-ui/core';
 import Header from './components/Header';
 import PeopleCards from './components/PeopleCards';
-import CardsPagination from './components/CardsPagination';
+import PeopleCardsPagination from './components/PeopleCardsPagination';
 import { Grid } from '@material-ui/core';
 import Footer from './components/Footer';
 import { Provider } from 'react-redux';
@@ -27,7 +27,7 @@ class App extends Component {
             <PeopleCards />
             <Grid item xs={12}>
               <br />
-              <CardsPagination count={87} />
+              <PeopleCardsPagination count={87} />
             </Grid>
             <Grid item xs={12}>
               <br />

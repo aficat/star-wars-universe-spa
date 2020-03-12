@@ -1,4 +1,32 @@
-import { FETCH_HOMEWORLD, FETCH_SPECIES, FETCH_VEHICLES, FETCH_STARSHIPS, FETCH_FILMS } from './types';
+import { FETCH_HOMEWORLD, FETCH_SPECIES, FETCH_VEHICLES, FETCH_STARSHIPS, FETCH_FILMS, FETCH_PERSON_BY_ID } from './types';
+
+export const fetchPersonById = (url) => (dispatch) => {
+    fetch(url).then(res => res.json())
+        .then(data => {
+            return dispatch({
+                type: FETCH_PERSON_BY_ID,
+                payload: {
+                    name: data.name,
+                    gender: data.gender,
+                    height: data.height,
+                    mass: data.mass,
+                    url: data.url,
+                    eyeColor: data.eye_color,
+                    hairColor: data.hair_color,
+                    skinColor: data.skin_color,
+                    birthYear: data.birth_year,
+                    homeworldURL: data.homeworld,
+                    filmsURLs: data.films,
+                    speciesURLs: data.species,
+                    vehiclesURLs: data.vehicles,
+                    starshipsURLs: data.starships,
+                    createdDate: data.created,
+                    editedDate: data.edited
+                }
+            });
+        })
+        .catch(error => console.error(error));
+}
 
 export const fetchHomeworld = (url) => (dispatch) => {
     fetch(url).then(res => res.json())

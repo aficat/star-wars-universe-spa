@@ -82,6 +82,6 @@ This React.js application is equipped with Redux and bootstrapped with [Create R
 
 ## Screenshot of Application
 
-![People in the Star Wars Universe](https://i.pinimg.com/originals/30/ae/a3/30aea3c30220b838eb4af36fa1f42e94.png)
+![Star Wars Universe People](https://i.pinimg.com/originals/30/ae/a3/30aea3c30220b838eb4af36fa1f42e94.png)
 
 ![Person Details](https://i.pinimg.com/originals/b0/eb/a0/b0eba0ce949dac12593f84ed1b80efcd.png)

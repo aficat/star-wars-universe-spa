@@ -9,10 +9,10 @@ const cardStyles = {
 class PeopleCardsSingleCard extends Component {
 
     constructor(props) {
-      super(props);
-      this.state = {
-          open: false,
-      }
+        super(props);
+        this.state = {
+            open: false,
+        }
     }
 
     renderPersonCard = () => {
@@ -52,38 +52,38 @@ class PeopleCardsSingleCard extends Component {
     }
 
     handleClick = () => {
-      this.setState({ open: true })
+        this.setState({ open: true })
     };
-  
+
     handleClose = () => {
-      this.setState({ open: false })
+        this.setState({ open: false })
     };
 
     renderPersonCardModal = () => {
         const { name, height, mass, gender, url, eyeColor, skinColor, hairColor, birthYear } = this.props;
         return (
-            <Modal size={"small"} open={this.state.open} onClose={this.handleClose}>
-              <Modal.Header>{name}</Modal.Header>
-              <Modal.Content scrolling>
-                        <Typography
-                            variant="subtitle2"
-                            component="p"
-                        >
-                            Gender: {gender}<br />
+            <Modal size={"small"} open={this.state.open} onClose={this.handleClose} closeIcon>
+                <Modal.Header>{name}</Modal.Header>
+                <Modal.Content scrolling>
+                    <Typography
+                        variant="subtitle2"
+                        component="p"
+                    >
+                        Gender: {gender}<br />
                         Birth Year: {birthYear}
-                        </Typography>
-                        <Typography
-                            variant="body2"
-                            component="p"
-                        >
-                            Height: {height}<br />
+                    </Typography>
+                    <Typography
+                        variant="body2"
+                        component="p"
+                    >
+                        Height: {height}<br />
                             Mass: {mass}<br />
                             Eye Color: {eyeColor} <br />
                             Skin Color: {skinColor} <br />
                             Hair Color: {hairColor}
-                            <br />
-                        </Typography>
-              </Modal.Content>
+                        <br />
+                    </Typography>
+                </Modal.Content>
             </Modal>
         )
     }
@@ -98,7 +98,7 @@ class PeopleCardsSingleCard extends Component {
                 >
                     {this.renderPersonCard()}
                 </Tooltip>
-                    {this.renderPersonCardModal()}
+                {this.renderPersonCardModal()}
             </Grid>
         );
     }

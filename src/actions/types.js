@@ -1,0 +1,7 @@
+export const FETCH_PEOPLE = 'FETCH_PEOPLE';
+
+export const FETCH_HOMEWORLD = 'FETCH_HOMEWORLD';
+export const FETCH_SPECIES = 'FETCH_SPECIES';
+export const FETCH_VEHICLES = 'FETCH_VEHICLES';
+export const FETCH_STARSHIPS = 'FETCH_STARSHIPS';
+export const FECTH_FILMS = 'FETCH_FILMS';

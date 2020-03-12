@@ -1,12 +1,19 @@
 import React, { Component } from 'react';
 import PeopleCardsSingleCard from './PeopleCardsSingleCard';
+import { fetchPeople } from '../actions/peopleActions';
+import { connect } from 'react-redux';
 
-export default class PeopleCards extends Component {
+class PeopleCards extends Component {
+
+    componentDidMount() {
+        this.props.fetchPeople();
+    }
+
     render() {
-        let people = this.props.people;
+        const peopleCards = this.props.people;
         return (
             <>
-                {people.map(person =>
+                {peopleCards && peopleCards.map(person =>
                     <PeopleCardsSingleCard
                         name={person.name}
                         gender={person.gender}
@@ -24,3 +31,8 @@ export default class PeopleCards extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    people: state.people.people
+});
+export default connect(mapStateToProps, { fetchPeople })(PeopleCards);

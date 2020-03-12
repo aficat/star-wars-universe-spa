@@ -27,8 +27,8 @@ This React.js application is equipped with Redux and bootstrapped with [Create R
             |__ store.js (Redux Store Set Up & Configuration)
             |__ actions
             |   |
-            |   |__ peopleActions.js (/people API call)
-            |   |__ personActions.js (/people/:personId & other person details API calls)
+            |   |__ peopleActions.js (people API call)
+            |   |__ personActions.js (person details API calls)
             |   |__ types.js (List of all action types)
             |   
             |__ reducers

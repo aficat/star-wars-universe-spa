@@ -12,9 +12,19 @@ export const fetchPeople = (activePage) => (dispatch) => {
                 type: FETCH_PEOPLE,
                 payload: {
                     people: data.results,
-                    count: data.count
+                    count: data.count,
+                    status: data.count === 0 ? "" : "done",
+                    message: data.count === 0 ? "There is no data." : "Successfully lretrieved people data."
                 }
             });
         })
-        .catch(error => console.error(error));
+        .catch(error => {
+            return dispatch({
+                type: FETCH_PEOPLE,
+                payload: {
+                    status: "error",
+                    message: "Error had occured when retrieving people data."
+                }
+            });
+        });
 }

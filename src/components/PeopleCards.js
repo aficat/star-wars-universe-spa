@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PeopleCardsSingleCard from './PeopleCardsSingleCard';
 import { fetchPeople } from '../actions/peopleActions';
 import { connect } from 'react-redux';
+import {CircularProgress, Typography} from '@material-ui/core';
 
 // Renders Main Body of Star Wars People's Cards
 class PeopleCards extends Component {
@@ -17,7 +18,7 @@ class PeopleCards extends Component {
      * 
      * @returns {} returns all PeopleCardsSingleCard component for each person
      */
-    render() {
+    renderResult = () => {
         const peopleCards = this.props.people;
         return (
             <>
@@ -45,9 +46,25 @@ class PeopleCards extends Component {
             </>
         )
     }
+
+    render() {
+        const { status, message } = this.props;
+        switch (status) {
+            case "done": // successfully retrieved people data
+                return this.renderResult();
+            case "retrieving": // retrieving people data
+                return <div style={{margin: 50}}><CircularProgress/></div>;
+            case "error": // error retrieving people data
+                return (<div><Typography variant="body2" component="p" color="error">{message}</Typography></div>);
+            default:
+                return (<div><Typography variant="body2" component="p">{message}</Typography></div>);
+        }
+    }
 }
 
 const mapStateToProps = state => ({
-    people: state.people.people
+    people: state.people.people,
+    status: state.people.status,
+    message: state.people.message
 });
 export default connect(mapStateToProps, { fetchPeople })(PeopleCards);

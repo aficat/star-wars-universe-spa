@@ -2,7 +2,9 @@ import { FETCH_PEOPLE } from "../actions/types";
 
 const initialState = {
     people: [],
-    count: 0
+    count: 0,
+    status: "retrieving",
+    message: "Retrieving people data..."
 };
 
 export default function (state = initialState, action) {
@@ -11,7 +13,9 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 people: action.payload.people,
-                count: action.payload.count
+                count: action.payload.count,
+                status: action.payload.status,
+                message: action.payload.message
             };
         default:
             return state;

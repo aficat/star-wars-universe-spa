@@ -1,5 +1,10 @@
 import { FETCH_HOMEWORLD, FETCH_SPECIES, FETCH_VEHICLES, FETCH_STARSHIPS, FETCH_FILMS, FETCH_PERSON_BY_ID } from './types';
 
+/**
+ * @param {string} url - /person/:personId url api call
+ * 
+ * @return {} returns dispatch - action type and payload data 
+ */
 export const fetchPersonById = (url) => (dispatch) => {
     fetch(url).then(res => res.json())
         .then(data => {
@@ -28,6 +33,11 @@ export const fetchPersonById = (url) => (dispatch) => {
         .catch(error => console.error(error));
 }
 
+/**
+ * @param {string} url - /homeworld/:homeworldId url api call
+ * 
+ * @return {} returns dispatch - action type and payload data 
+ */
 export const fetchHomeworld = (url) => (dispatch) => {
     fetch(url).then(res => res.json())
         .then(data => {
@@ -41,6 +51,11 @@ export const fetchHomeworld = (url) => (dispatch) => {
         .catch(error => console.error(error));
 }
 
+/**
+ * @param {string[]} urls - a list of /species/:speciesId urls api call
+ * 
+ * @return {} returns dispatch - action type and payload data 
+ */
 export const fetchSpecies = (urls) => (dispatch) => {
     let speciesNames = [];
     urls && urls.map(url => {
@@ -58,6 +73,11 @@ export const fetchSpecies = (urls) => (dispatch) => {
     })
 }
 
+/**
+ * @param {string[]} urls - a list of /vehicles/:vehicleId urls api call
+ * 
+ * @return {} returns dispatch - action type and payload data 
+ */
 export const fetchVehicles = (urls) => (dispatch) => {
     let vehiclesNames = [];
     urls && urls.map(url => {
@@ -75,6 +95,11 @@ export const fetchVehicles = (urls) => (dispatch) => {
     })
 }
 
+/**
+ * @param {string[]} urls - a list of /starships/:starshipId urls api call
+ * 
+ * @return {} returns dispatch - action type and payload data 
+ */
 export const fetchStarships = (urls) => (dispatch) => {
     let starshipsNames = [];
     urls && urls.map(url => {
@@ -92,6 +117,11 @@ export const fetchStarships = (urls) => (dispatch) => {
     })
 }
 
+/**
+ * @param {string[]} urls - a list of /film/:filmId urls api call
+ * 
+ * @return {} returns dispatch - action type and payload data 
+ */
 export const fetchFilms = (urls) => (dispatch) => {
     let filmsTitles = [];
     urls && urls.map(url => {

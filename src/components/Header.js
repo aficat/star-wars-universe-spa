@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Typography } from '@material-ui/core';
 
+// Renders Header of Application Title and Description
 export default class Header extends Component {
     render() {
         return (

@@ -12,17 +12,29 @@ class PeopleCardsPagination extends Component {
         }
     }
 
+    // Fetch list of Star Wars People based on active page
     componentDidMount() {
         this.props.fetchPeople(this.state.activePage);
     }
 
+
+    /**
+     * Update active page when pagination settings are changed
+     * 
+     * @const  {number} activePage - current page number
+     */
     handlePaginationChange = (e, { activePage }) => {
         this.setState({ activePage: activePage });
 
-        //reset people cards display according to new page
+        // Updates store and re-render PeopleCards display based on active page
         this.props.fetchPeople(activePage);
     }
 
+    /**
+     * @const  {number} count - Total number of Star Wars people
+     * 
+     * @returns {} returns Pagination component that manages people's cards page views
+     */
     render() {
         const { count } = this.props;
         let totalPages = Math.ceil(count / 10); // 10 cards per page

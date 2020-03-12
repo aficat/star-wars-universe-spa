@@ -3,12 +3,20 @@ import PeopleCardsSingleCard from './PeopleCardsSingleCard';
 import { fetchPeople } from '../actions/peopleActions';
 import { connect } from 'react-redux';
 
+// Renders Main Body of Star Wars People's Cards
 class PeopleCards extends Component {
 
+    // Fetch list of Star Wars People
     componentDidMount() {
-        this.props.fetchPeople(1); // when application launches, first page is shown
+        // activePage = 1; renders first page of people's results
+        this.props.fetchPeople(1);
     }
 
+    /**
+     * @const  {Object} peopleCards - List of People Objects
+     * 
+     * @returns {} returns all PeopleCardsSingleCard component for each person
+     */
     render() {
         const peopleCards = this.props.people;
         return (

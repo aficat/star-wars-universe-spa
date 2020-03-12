@@ -17,8 +17,23 @@ class PeopleCardsSingleCard extends Component {
         }
     }
 
+    /**
+     * Trigger to update person details and open modal box.
+     * 
+     * @const  {string} homeworldURL - homeworld URL
+     * @const  {string[]} filmsURLs - List of film URLs
+     * @const  {string[]} speciesURLs - List of species URLs
+     * @const  {string[]} vehiclesURLs - List of vehicles URLs
+     * @const  {string[]} starshipsURLs - List of starships URLs
+     */
     handleClick = () => {
-        const { homeworldURL, filmsURLs, speciesURLs, vehiclesURLs, starshipsURLs } = this.props;
+        const {
+            homeworldURL,
+            filmsURLs,
+            speciesURLs,
+            vehiclesURLs,
+            starshipsURLs
+        } = this.props;
         this.props.fetchHomeworld(homeworldURL);
         this.props.fetchSpecies(speciesURLs);
         this.props.fetchStarships(starshipsURLs);
@@ -27,10 +42,12 @@ class PeopleCardsSingleCard extends Component {
         this.setState({ open: true })
     };
 
+    // Trigger to close modal box
     handleClose = () => {
         this.setState({ open: false })
     };
 
+    // Renders modal box with person's details
     renderPersonCardModal = (person) => {
         const {
             name,
@@ -44,7 +61,13 @@ class PeopleCardsSingleCard extends Component {
             createdDate,
             editedDate
         } = person;
-        const { homeworld, species, vehicles, starships, films } = this.props;
+        const {
+            homeworld,
+            species,
+            vehicles,
+            starships,
+            films
+        } = this.props;
         const created = new Date(createdDate);
         const edited = new Date(editedDate);
         return (
@@ -54,7 +77,9 @@ class PeopleCardsSingleCard extends Component {
                 onClose={this.handleClose}
                 closeIcon
             >
-                <Modal.Header>{name}</Modal.Header>
+                <Modal.Header>
+                    {name}
+                </Modal.Header>
                 <Modal.Content scrolling>
                     <Typography
                         variant="body2"
@@ -118,7 +143,11 @@ class PeopleCardsSingleCard extends Component {
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        <Button onClick={() => this.handleClick()}>View More Details</Button>
+                        <Button
+                            onClick={() => this.handleClick()}
+                        >
+                            View More Details
+                            </Button>
                     </CardActions>
                 </Card>
                 {this.renderPersonCardModal(this.props)}

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+// Renders Footer of Copyright text
 export default class Footer extends Component {
     render() {
         return (

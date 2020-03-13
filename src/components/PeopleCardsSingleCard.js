@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Card, CardContent, Typography, Grid, Button, CardActions } from '@material-ui/core';
-import { Modal } from 'semantic-ui-react';
 import { fetchHomeworld, fetchSpecies, fetchFilms, fetchStarships, fetchVehicles } from '../actions/personActions';
 import { connect } from 'react-redux';
+import PeopleCardsSingleCardModal from './PeopleCardsSingleCardModal';
 
 const cardStyles = {
     textAlign: "left"
@@ -47,77 +47,6 @@ class PeopleCardsSingleCard extends Component {
         this.setState({ open: false })
     };
 
-    // Renders modal box with person's details
-    renderPersonCardModal = (person) => {
-        const {
-            name,
-            height,
-            mass,
-            gender,
-            eyeColor,
-            skinColor,
-            hairColor,
-            birthYear,
-            createdDate,
-            editedDate
-        } = person;
-        const {
-            homeworld,
-            species,
-            vehicles,
-            starships,
-            films
-        } = this.props;
-        const created = new Date(createdDate);
-        const edited = new Date(editedDate);
-        return (
-            <Modal
-                size={"mini"}
-                open={this.state.open}
-                onClose={this.handleClose}
-                closeIcon
-            >
-                <Modal.Header>
-                    {name}
-                </Modal.Header>
-                <Modal.Content scrolling>
-                    <Typography
-                        variant="body2"
-                        component="p"
-                    >
-                        Gender: {gender}<br />
-                        Birth Year: {birthYear}<br />
-                        <br />
-                        Height: {height}<br />
-                        Mass: {mass}<br />
-                        Eye Color: {eyeColor} <br />
-                        Skin Color: {skinColor} <br />
-                        Hair Color: {hairColor} <br />
-                        <br />
-                        Homeworld: {homeworld} <br />
-                        Species: {species.length === 0 ?
-                            "Unknown"
-                            : (species.join(", "))} <br />
-                        <br />
-                        Vehicles:  {vehicles.length === 0 ?
-                            "None"
-                            : (vehicles.join(", "))} <br />
-                            Starships:  {starships.length === 0 ?
-                            "None"
-                            : (starships.join(", "))} <br />
-                        <br />
-                            Films:  {films.length === 0 ?
-                            "None"
-                            : (films.join(", "))} <br />
-                        <br />
-                        Created on {created.toDateString()}<br />
-                        Last edited on {edited.toDateString()}
-                    </Typography>
-                </Modal.Content>
-            </Modal>
-        )
-    }
-
     render() {
         const {
             name,
@@ -150,7 +79,11 @@ class PeopleCardsSingleCard extends Component {
                             </Button>
                     </CardActions>
                 </Card>
-                {this.renderPersonCardModal(this.props)}
+                {<PeopleCardsSingleCardModal
+                    person={this.props}
+                    open={this.state.open}
+                    handleClose={this.handleClose}
+                />}
             </Grid>
         );
     }

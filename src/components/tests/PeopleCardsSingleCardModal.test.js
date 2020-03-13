@@ -1,10 +1,10 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 import toJson from 'enzyme-to-json'
-import PeopleCardsSingleCard from '../PeopleCardsSingleCard';
+import PeopleCardsSingleCardModal from '../PeopleCardsSingleCardModal';
 import store from '../../store';
 
-describe('PeopleCardsSingleCard component', () => {
+describe('PeopleCardsSingleCardModal component', () => {
 
     it('renders without crashing given the required props', () => {
         const props = {
@@ -15,7 +15,7 @@ describe('PeopleCardsSingleCard component', () => {
             starships: [],
             vehicles: [],
         }
-        const wrapper = shallow(<PeopleCardsSingleCard {...props} store={store} />)
+        const wrapper = shallow(<PeopleCardsSingleCardModal {...props} store={store} />)
         expect(toJson(wrapper)).toMatchSnapshot()
     })
 

@@ -2,15 +2,22 @@ import React, { Component } from 'react';
 import PeopleCardsSingleCard from './PeopleCardsSingleCard';
 import { fetchPeople } from '../actions/peopleActions';
 import { connect } from 'react-redux';
-import {CircularProgress, Typography} from '@material-ui/core';
+import { CircularProgress, Typography } from '@material-ui/core';
 
 // Renders Main Body of Star Wars People's Cards
 class PeopleCards extends Component {
 
-    // Fetch list of Star Wars People
+    // Fetch list of Star Wars People based on active page
     componentDidMount() {
-        // activePage = 1; renders first page of people's results
         this.props.fetchPeople(1);
+    }
+
+    componentDidUpdate() {
+        const { refreshPageStatus, activePage } = this.props;
+        if (refreshPageStatus) {
+            // Updates activePage and set refreshPageStatus back to false in store after re-render
+            this.props.fetchPeople(activePage);
+        }
     }
 
     /**
@@ -47,17 +54,47 @@ class PeopleCards extends Component {
         )
     }
 
+    renderAwaitingCircularProgress = () => {
+        return (
+            <div style={{ margin: 50 }}>
+                <CircularProgress />
+            </div>
+        )
+    }
+
     render() {
-        const { status, message } = this.props;
+        const { status, message, refreshPageStatus } = this.props;
         switch (status) {
             case "done": // successfully retrieved people data
-                return this.renderResult();
+                return (
+                    refreshPageStatus ?
+                        this.renderAwaitingCircularProgress()
+                        : this.renderResult()
+                );
             case "retrieving": // retrieving people data
-                return <div style={{margin: 50}}><CircularProgress/></div>;
+                return this.renderAwaitingCircularProgress();
             case "error": // error retrieving people data
-                return (<div><Typography variant="body2" component="p" color="error">{message}</Typography></div>);
+                return (
+                    <div>
+                        <Typography
+                            variant="body2"
+                            component="p"
+                            color="error"
+                        >
+                            {message}
+                        </Typography>
+                    </div>
+                );
             default:
-                return (<div><Typography variant="body2" component="p">{message}</Typography></div>);
+                return (
+                    <div>
+                        <Typography
+                            variant="body2"
+                            component="p">
+                            {message}
+                        </Typography>
+                    </div>
+                );
         }
     }
 }
@@ -65,6 +102,8 @@ class PeopleCards extends Component {
 const mapStateToProps = state => ({
     people: state.people.people,
     status: state.people.status,
-    message: state.people.message
+    message: state.people.message,
+    refreshPageStatus: state.people.refreshPageStatus,
+    activePage: state.people.activePage
 });
 export default connect(mapStateToProps, { fetchPeople })(PeopleCards);

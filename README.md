@@ -4,7 +4,7 @@ This is a React.js single page application where users can view the details abou
 
 [View Demo](https://aficat.github.io/star-wars-universe-spa/)
 
-Note: Download Google Extension "Moesif CORS" and switch on CORS before viewing application.
+Note: When there is trouble retreiving data due to CORS error, download Google Extension "Moesif CORS" and switch on CORS before viewing application.
 
 ## Software Architecture and Design
 This React.js application is equipped with Redux and bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The design of this application uses the [Material UI](https://material-ui.com/) and [Semantic UI React](https://react.semantic-ui.com/) library.
@@ -106,8 +106,7 @@ The predeploy script will run automatically before deploy is run.
 
 3. Add `"homepage": "https://<insert username>.github.io/<insert app-name>"` into package.json.
 
-4. Deploy the site by running npm run deploy
-Then run:
+4. Deploy the site by running: 
 
 ```
 npm run deploy

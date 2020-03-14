@@ -5,7 +5,7 @@ import { FETCH_PEOPLE } from './types';
  * 
  * @return {} returns dispatch - action type and payload data 
  */
-export const fetchPeople = (activePage) => (dispatch) => {
+export const fetchPeople = (activePage, refreshPageStatus = false) => (dispatch) => {
     fetch(`https://swapi.co/api/people/?page=${activePage}`).then(res => res.json())
         .then(data => {
             return dispatch({
@@ -14,7 +14,9 @@ export const fetchPeople = (activePage) => (dispatch) => {
                     people: data.results,
                     count: data.count,
                     status: data.count === 0 ? "" : "done",
-                    message: data.count === 0 ? "There is no data." : "Successfully retrieved people data."
+                    message: data.count === 0 ? "There is no data." : "Successfully retrieved people data.",
+                    activePage: activePage,
+                    refreshPageStatus: refreshPageStatus
                 }
             });
         })

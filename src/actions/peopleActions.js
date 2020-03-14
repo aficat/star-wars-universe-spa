@@ -14,7 +14,6 @@ export const fetchPeople = (activePage, refreshPageStatus = false) => (dispatch)
                     people: data.results,
                     count: data.count,
                     status: data.count === 0 ? "" : "done",
-                    message: data.count === 0 ? "There is no data." : "Successfully retrieved people data.",
                     activePage: activePage,
                     refreshPageStatus: refreshPageStatus
                 }
@@ -25,7 +24,6 @@ export const fetchPeople = (activePage, refreshPageStatus = false) => (dispatch)
                 type: FETCH_PEOPLE,
                 payload: {
                     status: "error",
-                    message: "Error had occured when retrieving people data."
                 }
             });
         });

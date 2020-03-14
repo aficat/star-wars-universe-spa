@@ -15,6 +15,7 @@ class PeopleCardsSingleCard extends Component {
         this.state = {
             open: false
         }
+        this.handleClose = this.handleClose.bind(this);
     }
 
     /**

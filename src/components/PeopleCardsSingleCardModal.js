@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Modal } from 'semantic-ui-react';
 import { Typography } from '@material-ui/core';
+import { connect } from 'react-redux';
+import { fetchHomeworld, fetchSpecies, fetchFilms, fetchStarships, fetchVehicles, resetStore } from '../actions/personActions';
 
-export default class PeopleCardsSingleCardModal extends Component {
+class PeopleCardsSingleCardModal extends Component {
     render() {
         const {
             name,
@@ -50,20 +52,12 @@ export default class PeopleCardsSingleCardModal extends Component {
                         Hair Color: {hairColor} <br />
                         <br />
                         Homeworld: {homeworld} <br />
-                        Species: {species.length === 0 ?
-                            "Unknown"
-                            : species.join(", ")} <br />
+                        Species: {species.toString() ? species.toString() : "-"} <br />
                         <br />
-                        Vehicles:  {vehicles.length === 0 ?
-                            "None"
-                            : vehicles.join(", ")} <br />
-                            Starships:  {starships.length === 0 ?
-                            "None"
-                            : starships.join(", ")} <br />
+                        Vehicles:  {vehicles.toString() ? vehicles.toString() : "-"} <br />
+                            Starships:  {starships.toString() ? starships.toString() : "-"} <br />
                         <br />
-                            Films:  {films.length === 0 ?
-                            "None"
-                            : films.join(", ")} <br />
+                            Films:  {films.toString() ? films.toString() : "-"} <br />
                         <br />
                         Created on {created.toDateString()}<br />
                         Last edited on {edited.toDateString()}
@@ -73,3 +67,19 @@ export default class PeopleCardsSingleCardModal extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    homeworld: state.person.homeworld,
+    species: state.person.species,
+    films: state.person.films,
+    starships: state.person.starships,
+    vehicles: state.person.vehicles
+});
+export default connect(mapStateToProps, {
+    fetchHomeworld,
+    fetchSpecies,
+    fetchFilms,
+    fetchStarships,
+    fetchVehicles,
+    resetStore
+})(PeopleCardsSingleCardModal);

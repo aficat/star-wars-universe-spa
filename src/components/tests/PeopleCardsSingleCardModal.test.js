@@ -20,21 +20,4 @@ describe('PeopleCardsSingleCardModal component', () => {
         expect(toJson(wrapper)).toMatchSnapshot()
     })
 
-    test('renders Modal Header for Person Name', () => {
-        const props = {
-            name: "Test Name",
-            species: [],
-            starships: [],
-            vehicles: [],
-            films: []
-        }
-        const wrapper = shallow(<PeopleCardsSingleCardModal {...props} store={store} />);
-        const resultComponent = wrapper.containsMatchingElement(
-            <Modal.Header>
-                Test Name
-            </Modal.Header>
-        );
-        expect(resultComponent).toBeTruthy();
-    });
-
 });

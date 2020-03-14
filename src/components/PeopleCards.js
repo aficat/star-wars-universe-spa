@@ -57,7 +57,7 @@ class PeopleCards extends Component {
     renderAwaitingCircularProgress = () => { return <div style={{ margin: 50 }}> <CircularProgress /> </div> }
 
     render() {
-        const { status, message, refreshPageStatus } = this.props;
+        const { status, refreshPageStatus } = this.props;
         switch (status) {
             case "done": // successfully retrieved people data
                 return (
@@ -96,7 +96,6 @@ class PeopleCards extends Component {
 const mapStateToProps = state => ({
     people: state.people.people,
     status: state.people.status,
-    message: state.people.message,
     refreshPageStatus: state.people.refreshPageStatus,
     activePage: state.people.activePage
 });

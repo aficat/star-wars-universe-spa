@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/star-wars-universe-spa/static/css/main.a797fdf2.chunk.css",
-    "main.js": "/star-wars-universe-spa/static/js/main.d7dbe3c2.chunk.js",
-    "main.js.map": "/star-wars-universe-spa/static/js/main.d7dbe3c2.chunk.js.map",
+    "main.js": "/star-wars-universe-spa/static/js/main.4ce03383.chunk.js",
+    "main.js.map": "/star-wars-universe-spa/static/js/main.4ce03383.chunk.js.map",
     "runtime-main.js": "/star-wars-universe-spa/static/js/runtime-main.835bb46d.js",
     "runtime-main.js.map": "/star-wars-universe-spa/static/js/runtime-main.835bb46d.js.map",
-    "static/js/2.37c50bc4.chunk.js": "/star-wars-universe-spa/static/js/2.37c50bc4.chunk.js",
-    "static/js/2.37c50bc4.chunk.js.map": "/star-wars-universe-spa/static/js/2.37c50bc4.chunk.js.map",
+    "static/js/2.fb45e574.chunk.js": "/star-wars-universe-spa/static/js/2.fb45e574.chunk.js",
+    "static/js/2.fb45e574.chunk.js.map": "/star-wars-universe-spa/static/js/2.fb45e574.chunk.js.map",
     "index.html": "/star-wars-universe-spa/index.html",
-    "precache-manifest.7beb12c868085373577f962774c86599.js": "/star-wars-universe-spa/precache-manifest.7beb12c868085373577f962774c86599.js",
+    "precache-manifest.74def0ba34c21736309f0d6697c85f25.js": "/star-wars-universe-spa/precache-manifest.74def0ba34c21736309f0d6697c85f25.js",
     "service-worker.js": "/star-wars-universe-spa/service-worker.js",
     "static/css/main.a797fdf2.chunk.css.map": "/star-wars-universe-spa/static/css/main.a797fdf2.chunk.css.map",
-    "static/js/2.37c50bc4.chunk.js.LICENSE.txt": "/star-wars-universe-spa/static/js/2.37c50bc4.chunk.js.LICENSE.txt"
+    "static/js/2.fb45e574.chunk.js.LICENSE.txt": "/star-wars-universe-spa/static/js/2.fb45e574.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.835bb46d.js",
-    "static/js/2.37c50bc4.chunk.js",
+    "static/js/2.fb45e574.chunk.js",
     "static/css/main.a797fdf2.chunk.css",
-    "static/js/main.d7dbe3c2.chunk.js"
+    "static/js/main.4ce03383.chunk.js"
   ]
 }

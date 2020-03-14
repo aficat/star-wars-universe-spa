@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import { Modal } from 'semantic-ui-react';
 import { Typography } from '@material-ui/core';
-import { fetchHomeworld, fetchSpecies, fetchFilms, fetchStarships, fetchVehicles } from '../actions/personActions';
-import { connect } from 'react-redux';
 
-class PeopleCardsSingleCardModal extends Component {
+export default class PeopleCardsSingleCardModal extends Component {
     render() {
         const {
             name,
@@ -16,22 +14,22 @@ class PeopleCardsSingleCardModal extends Component {
             hairColor,
             birthYear,
             createdDate,
-            editedDate
-        } = this.props.person;
-        const {
+            editedDate,
             homeworld,
             species,
             vehicles,
             starships,
-            films
+            films,
+            open,
+            handleClose
         } = this.props;
         const created = new Date(createdDate);
         const edited = new Date(editedDate);
         return (
             <Modal
                 size={"mini"}
-                open={this.props.open}
-                onClose={this.props.handleClose}
+                open={open}
+                onClose={handleClose}
                 closeIcon
             >
                 <Modal.Header>
@@ -75,19 +73,3 @@ class PeopleCardsSingleCardModal extends Component {
         )
     }
 }
-
-const mapStateToProps = state => ({
-    homeworld: state.person.homeworld,
-    species: state.person.species,
-    films: state.person.films,
-    starships: state.person.starships,
-    vehicles: state.person.vehicles
-});
-export default connect(mapStateToProps,
-    {
-        fetchHomeworld,
-        fetchSpecies,
-        fetchFilms,
-        fetchStarships,
-        fetchVehicles
-    })(PeopleCardsSingleCardModal);

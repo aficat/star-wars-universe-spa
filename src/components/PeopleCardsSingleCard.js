@@ -13,7 +13,7 @@ class PeopleCardsSingleCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: false,
+            open: false
         }
     }
 
@@ -26,14 +26,7 @@ class PeopleCardsSingleCard extends Component {
      * @const  {string[]} vehiclesURLs - List of vehicles URLs
      * @const  {string[]} starshipsURLs - List of starships URLs
      */
-    handleClick = () => {
-        const {
-            homeworldURL,
-            filmsURLs,
-            speciesURLs,
-            vehiclesURLs,
-            starshipsURLs
-        } = this.props;
+    handleClick = (homeworldURL, filmsURLs, speciesURLs, vehiclesURLs, starshipsURLs) => {
         this.props.fetchHomeworld(homeworldURL);
         this.props.fetchSpecies(speciesURLs);
         this.props.fetchStarships(starshipsURLs);
@@ -52,7 +45,24 @@ class PeopleCardsSingleCard extends Component {
         const {
             name,
             gender,
-            birthYear
+            birthYear,
+            height,
+            mass,
+            eyeColor,
+            hairColor,
+            skinColor,
+            createdDate,
+            editedDate,
+            films,
+            starships,
+            homeworld,
+            vehicles,
+            species,
+            homeworldURL,
+            filmsURLs,
+            speciesURLs,
+            vehiclesURLs,
+            starshipsURLs,
         } = this.props;
         return (
             <Grid item xs={12} md={3}>
@@ -74,15 +84,29 @@ class PeopleCardsSingleCard extends Component {
                     </CardContent>
                     <CardActions>
                         <Button
-                            onClick={() => this.handleClick()}
+                            onClick={() => this.handleClick(homeworldURL, filmsURLs, speciesURLs, vehiclesURLs, starshipsURLs)}
                         >
                             View More Details
                             </Button>
                     </CardActions>
                 </Card>
                 <PeopleCardsSingleCardModal
-                    person={this.props}
+                    name={name}
+                    gender={gender}
+                    height={height}
+                    mass={mass}
+                    eyeColor={eyeColor}
+                    hairColor={hairColor}
+                    skinColor={skinColor}
+                    birthYear={birthYear}
+                    createdDate={createdDate}
+                    editedDate={editedDate}
                     open={this.state.open}
+                    homeworld={homeworld}
+                    species={species}
+                    films={films}
+                    starships={starships}
+                    vehicles={vehicles}
                     handleClose={this.handleClose}
                 />
             </Grid>
@@ -90,7 +114,13 @@ class PeopleCardsSingleCard extends Component {
     }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = state => ({
+    homeworld: state.person.homeworld,
+    species: state.person.species,
+    films: state.person.films,
+    starships: state.person.starships,
+    vehicles: state.person.vehicles
+});
 export default connect(mapStateToProps,
     {
         fetchHomeworld,

@@ -75,7 +75,7 @@ class PeopleCards extends Component {
                             component="p"
                             color="error"
                         >
-                            {message}
+                            Error had occured when retrieving people data.
                         </Typography>
                     </div>
                 );
@@ -85,7 +85,7 @@ class PeopleCards extends Component {
                         <Typography
                             variant="body2"
                             component="p">
-                            {message}
+                            There is no data.
                         </Typography>
                     </div>
                 );

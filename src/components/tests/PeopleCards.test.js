@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import toJson from 'enzyme-to-json'
 import PeopleCards from '../PeopleCards';
 import store from '../../store';
+import { Typography } from '@material-ui/core';
 
 describe('PeopleCards component', () => {
 

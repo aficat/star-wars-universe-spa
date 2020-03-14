@@ -52,6 +52,7 @@ This React.js application is equipped with Redux and bootstrapped with [Create R
                 |__ Header.js
                 |__ PeopleCards.js (List of People Cards)
                 |__ PeopleCardsSingleCard.js (Card of each Person with its Details)
+                |__ PeopleCardsSingleCardModal.js (Modal Popup for each Person with all Details)
                 |__ PeopleCardsPagination.js (Pagination for People Cards)
                 |__ tests
                     |__ PeopleCardsPagination.test.js
@@ -59,6 +60,7 @@ This React.js application is equipped with Redux and bootstrapped with [Create R
                     |__ Header.test.js
                     |__ PeopleCards.test.js
                     |__ PeopleCardsSingleCard.test.js
+                    |__ PeopleCardsSingleCardModal.test.js
 
 ## Setup Guide
 

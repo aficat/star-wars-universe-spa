@@ -1,11 +1,11 @@
-import { FETCH_HOMEWORLD, FETCH_SPECIES, FETCH_VEHICLES, FETCH_STARSHIPS, FETCH_FILMS } from "../actions/types";
+import { FETCH_HOMEWORLD, FETCH_SPECIES, FETCH_VEHICLES, FETCH_STARSHIPS, FETCH_FILMS, RESET } from "../actions/types";
 
 const initialState = {
-    homeworld: "",
-    species: [],
-    films: [],
-    starships: [],
-    vehicles: []
+    homeworld: "Retrieving...",
+    species: ["Retrieving...", ""],
+    films: ["Retrieving...", ""],
+    starships: ["Retrieving...", ""],
+    vehicles: ["Retrieving...", ""]
 };
 
 export default function (state = initialState, action) {
@@ -20,6 +20,8 @@ export default function (state = initialState, action) {
             return { ...state, starships: action.payload.starships };
         case FETCH_VEHICLES:
             return { ...state, vehicles: action.payload.vehicles };
+        case RESET:
+            return initialState;
         default:
             return state;
     }

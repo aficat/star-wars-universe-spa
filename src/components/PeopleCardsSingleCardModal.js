@@ -54,18 +54,18 @@ class PeopleCardsSingleCardModal extends Component {
                         Homeworld: {homeworld} <br />
                         Species: {species.length === 0 ?
                             "Unknown"
-                            : (species.join(", "))} <br />
+                            : species.join(", ")} <br />
                         <br />
                         Vehicles:  {vehicles.length === 0 ?
                             "None"
-                            : (vehicles.join(", "))} <br />
+                            : vehicles.join(", ")} <br />
                             Starships:  {starships.length === 0 ?
                             "None"
-                            : (starships.join(", "))} <br />
+                            : starships.join(", ")} <br />
                         <br />
                             Films:  {films.length === 0 ?
                             "None"
-                            : (films.join(", "))} <br />
+                            : films.join(", ")} <br />
                         <br />
                         Created on {created.toDateString()}<br />
                         Last edited on {edited.toDateString()}

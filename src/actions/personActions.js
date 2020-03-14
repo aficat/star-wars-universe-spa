@@ -105,3 +105,5 @@ export const fetchFilms = (urls) => (dispatch) => {
         })
     })
 }
+
+export const resetStore = () => () => {return;}

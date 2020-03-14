@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardContent, Typography, Grid, Button, CardActions } from '@material-ui/core';
-import { fetchHomeworld, fetchSpecies, fetchFilms, fetchStarships, fetchVehicles } from '../actions/personActions';
+import { fetchHomeworld, fetchSpecies, fetchFilms, fetchStarships, fetchVehicles, resetStore } from '../actions/personActions';
 import { connect } from 'react-redux';
 import PeopleCardsSingleCardModal from './PeopleCardsSingleCardModal';
 
@@ -45,6 +45,7 @@ class PeopleCardsSingleCard extends Component {
     // Trigger to close modal box
     handleClose = () => {
         this.setState({ open: false })
+        this.props.resetStore();
     };
 
     render() {
@@ -79,28 +80,23 @@ class PeopleCardsSingleCard extends Component {
                             </Button>
                     </CardActions>
                 </Card>
-                {<PeopleCardsSingleCardModal
+                <PeopleCardsSingleCardModal
                     person={this.props}
                     open={this.state.open}
                     handleClose={this.handleClose}
-                />}
+                />
             </Grid>
         );
     }
 }
 
-const mapStateToProps = state => ({
-    homeworld: state.person.homeworld,
-    species: state.person.species,
-    films: state.person.films,
-    starships: state.person.starships,
-    vehicles: state.person.vehicles
-});
+const mapStateToProps = state => ({});
 export default connect(mapStateToProps,
     {
         fetchHomeworld,
         fetchSpecies,
         fetchFilms,
         fetchStarships,
-        fetchVehicles
+        fetchVehicles,
+        resetStore
     })(PeopleCardsSingleCard);

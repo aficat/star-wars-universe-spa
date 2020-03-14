@@ -26,10 +26,10 @@ class PeopleCards extends Component {
      * @returns {} returns all PeopleCardsSingleCard component for each person
      */
     renderResult = () => {
-        const peopleCards = this.props.people;
+        const { people } = this.props;
         return (
             <>
-                {peopleCards && peopleCards.map(person =>
+                {people && people.map(person =>
                     <PeopleCardsSingleCard
                         name={person.name}
                         gender={person.gender}
@@ -54,13 +54,7 @@ class PeopleCards extends Component {
         )
     }
 
-    renderAwaitingCircularProgress = () => {
-        return (
-            <div style={{ margin: 50 }}>
-                <CircularProgress />
-            </div>
-        )
-    }
+    renderAwaitingCircularProgress = () => { return <div style={{ margin: 50 }}> <CircularProgress /> </div> }
 
     render() {
         const { status, message, refreshPageStatus } = this.props;

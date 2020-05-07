@@ -6,7 +6,7 @@ import { FETCH_PEOPLE } from './types';
  * @return {} returns dispatch - action type and payload data 
  */
 export const fetchPeople = (activePage, refreshPageStatus = false) => (dispatch) => {
-    fetch(`https://swapi.co/api/people/?page=${activePage}`).then(res => res.json())
+    fetch(`https://swapi.dev/api/people/?page=${activePage}`).then(res => res.json())
         .then(data => {
             return dispatch({
                 type: FETCH_PEOPLE,

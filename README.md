@@ -88,32 +88,6 @@ This React.js application is equipped with Redux and bootstrapped with [Create R
 1. Install: `enzyme enzyme-adapter-react-16 --dev`
 2. Run `npm run test` to launch test runner.
 
-### Deployment
-1. To publish it at https://myusername.github.io/my-app, run:
-
-```
-npm install --save gh-pages
-```
-
-2. Add the following scripts in your package.json:
-
-```
-  "scripts": {
-+   "predeploy": "npm run build",
-+   "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-```
-The predeploy script will run automatically before deploy is run.
-
-3. Add `"homepage": "https://<insert username>.github.io/<insert app-name>"` into package.json.
-
-4. Deploy the site by running: 
-
-```
-npm run deploy
-```
-
 ## Screenshot of Application
 
 ![Star Wars Universe People](https://i.pinimg.com/originals/30/ae/a3/30aea3c30220b838eb4af36fa1f42e94.png)
